@@ -5,11 +5,11 @@ on:
     branches:
       - main
     paths:
-      - "packages/container/**"
+      - "MF-different-tech-and-deployments/packages/container/**"
 
 defaults:
   run:
-    working-directory: packages/container
+    working-directory: MF-different-tech-and-deployments/packages/container
 
 jobs:
   build:
