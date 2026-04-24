@@ -20,7 +20,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
 //If we are in development and in isolation, call mount immediately
 if (process.env.NODE_ENV === "development") {
   //Check 2 : Child and container elements should be kept different ids with dev, container, etc. prefixes to make them distinct
-  const devRoot = document.querySelector("#_marketing-dev-root");
+  const devRoot = document.querySelector("#_auth-dev-root");
   if (devRoot) {
     mount(devRoot, { defaultHistory: createBrowserHistory() });
   }
