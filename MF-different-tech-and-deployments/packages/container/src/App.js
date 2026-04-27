@@ -11,14 +11,20 @@ import { StylesProvider, createGenerateClassName } from "@material-ui/core";
 const generateClassName = createGenerateClassName({ productionPrefix: "co" });
 
 export default () => {
+  const [isSignedIn, setIsSignedIn] = React.useState(false);
   return (
     <StylesProvider generateClassName={generateClassName}>
       <BrowserRouter>
         <div>
-          <Header />
+          <Header
+            onSignOut={() => setIsSignedIn(false)}
+            isSignedIn={isSignedIn}
+          />
           <Suspense fallback={<Progress />}>
             <Switch>
-              <Route path="/auth" component={AuthLazy} />
+              <Route path="/auth">
+                <AuthLazy onSignIn={() => setIsSignedIn(true)} />
+              </Route>
               <Route path="/" component={MarketingLazy} />
             </Switch>
           </Suspense>
